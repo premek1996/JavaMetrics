@@ -16,15 +16,13 @@ public class App {
 
             List<ConformedRow> conformedRows = CsvNormalizer.conformCsv(rows);
             CsvWriter.writeCsv(args[0], conformedRows);
-        }
-        else if (args.length == 2) {
+        } else if (args.length == 2) {
             List<Row> rows = CsvReader.readCsv(args[0]);
             rows = CsvNormalizer.cleanseCsv(rows);
 
             List<ConformedRow> conformedRows = CsvNormalizer.conformCsv(rows);
             CsvWriter.writeCsv(args[1], conformedRows);
-        }
-        else {
+        } else {
             System.err.println("Usage: java -jar CsvConform <input_csv> [<output_csv>]");
             System.exit(1);
         }
@@ -39,4 +37,5 @@ public class App {
             h.setLevel(Level.WARNING);
         }
     }
+
 }

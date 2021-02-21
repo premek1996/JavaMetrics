@@ -20,8 +20,7 @@ public class CsvNormalizer {
                     if (isEmptyField(row.getType())) {
                         LOGGER.warning("Found empty type in " + row.toString());
                         return false;
-                    }
-                    else if (isEmptyField(row.getCodeName())) {
+                    } else if (isEmptyField(row.getCodeName())) {
                         LOGGER.warning("Found empty code_name in " + row.toString());
                         return false;
                     }
@@ -52,8 +51,7 @@ public class CsvNormalizer {
                         c.setPackageName(ClassNormalizer.mapPackageForClass(row.getCodeName()));
                         c.setOuterClassName(ClassNormalizer.mapOuterClassForClass(row.getCodeName()));
                         c.setClassName(ClassNormalizer.mapClassNameForClass(row.getCodeName()));
-                    }
-                    else if (row.getType().equals(Row.METHOD_TYPE)) {
+                    } else if (row.getType().equals(Row.METHOD_TYPE)) {
                         if (row.getCodeName().contains("#")) { // logic for methods
                             c.setType(ConformedRow.METHOD_TYPE);
                             c.setPackageName(MethodNormalizer.mapPackageForMethod(row.getCodeName()));
@@ -62,8 +60,7 @@ public class CsvNormalizer {
 
                             c.setMethodName(MethodNormalizer.mapMethodNameForMethod(row.getCodeName()));
                             c.setParameters(MethodNormalizer.mapParametersForMethod(row.getCodeName()));
-                        }
-                        else { // logic for constructors
+                        } else { // logic for constructors
                             c.setType(ConformedRow.CONSTRUCTOR_TYPE);
                             c.setPackageName(ConstructorNormalizer.mapPackageForConstructor(row.getCodeName()));
                             c.setOuterClassName(ConstructorNormalizer.mapOuterClassForConstructor(row.getCodeName()));
@@ -72,8 +69,7 @@ public class CsvNormalizer {
                             c.setMethodName(ConstructorNormalizer.mapMethodNameForConstructor(row.getCodeName()));
                             c.setParameters(ConstructorNormalizer.mapParametersForConstructor(row.getCodeName()));
                         }
-                    }
-                    else {
+                    } else {
                         if (LOGGER.isLoggable(Level.WARNING)) {
                             LOGGER.warning("Unknown type " + c.getType() + " for row: " + row.toString());
                         }
@@ -82,9 +78,12 @@ public class CsvNormalizer {
                     c.setRepository(row.getRepository());
                     c.setCommitHash(row.getCommitHash());
                     c.setGitSourceFileUrl(row.getLink());
+                    c.setStartLine(row.getStartLine());
+                    c.setEndLine(row.getEndLine());
 
                     return c;
                 })
                 .collect(Collectors.toList());
     }
+
 }

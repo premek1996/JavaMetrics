@@ -20,9 +20,9 @@ public class ConstructorNormalizerTest {
 
     @BeforeAll
     static void setUp() {
-        constructorNoArgsUUT = new Row(1, "function", "org.test.package.ClassName.ClassName", "test@github.com", "1EC2", "https://test.com");
-        constructorArgsUUT = new Row(2, "function", "org.test.package.OuterClass.ClassName.ClassName arg1", "test@github.com", "1EC2", "https://test.com");
-        noPackageConstructorUUT = new Row(3, "function", "ClassName.ClassName", "test@github.com", "1EC2", "https://test.com");
+        constructorNoArgsUUT = new Row(1, "function", "org.test.package.ClassName.ClassName", "test@github.com", "1EC2", "https://test.com", "30", "35");
+        constructorArgsUUT = new Row(2, "function", "org.test.package.OuterClass.ClassName.ClassName arg1", "test@github.com", "1EC2", "https://test.com", "30", "35");
+        noPackageConstructorUUT = new Row(3, "function", "ClassName.ClassName", "test@github.com", "1EC2", "https://test.com", "30", "35");
 
         rowsUUT = Arrays.asList(constructorArgsUUT, constructorNoArgsUUT);
         rowsUUT = CsvNormalizer.cleanseCsv(rowsUUT);

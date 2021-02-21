@@ -17,11 +17,23 @@ public class ConformedRow {
     private String repository;
     private String commitHash;
     private String gitSourceFileUrl;
+    private String startLine;
+    private String endLine;
 
     public ConformedRow() {
     }
 
-    public ConformedRow(String type, String packageName, String outerClassName, String className, String methodName, List<String> parameters, String repository, String commitHash, String gitSourceFileUrl) {
+    public ConformedRow(String type,
+                        String packageName,
+                        String outerClassName,
+                        String className,
+                        String methodName,
+                        List<String> parameters,
+                        String repository,
+                        String commitHash,
+                        String gitSourceFileUrl,
+                        String startLine,
+                        String endLine) {
         this.type = type;
         this.packageName = packageName;
         this.outerClassName = outerClassName;
@@ -31,6 +43,8 @@ public class ConformedRow {
         this.repository = repository;
         this.commitHash = commitHash;
         this.gitSourceFileUrl = gitSourceFileUrl;
+        this.startLine = startLine;
+        this.endLine = endLine;
     }
 
     public String getType() {
@@ -104,4 +118,21 @@ public class ConformedRow {
     public void setGitSourceFileUrl(String gitSourceFileUrl) {
         this.gitSourceFileUrl = gitSourceFileUrl;
     }
+
+    public String getStartLine() {
+        return startLine;
+    }
+
+    public void setStartLine(String startLine) {
+        this.startLine = startLine;
+    }
+
+    public String getEndLine() {
+        return endLine;
+    }
+
+    public void setEndLine(String endLine) {
+        this.endLine = endLine;
+    }
+
 }

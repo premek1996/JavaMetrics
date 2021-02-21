@@ -23,12 +23,12 @@ public class ClassNormalizerTest {
 
     @BeforeAll
     static void setUp() {
-        classUUT = new Row(1, "class", "org.test.package.ClassName", "test@github.com", "1EC2", "https://test.com");
-        classWithOuterClassUUT = new Row(2, "class", "org.test.package.OuterClass1.ClassName", "test@github.com", "1EC3", "https://test.com");
-        classWithOuterClassChainUUT = new Row(3, "class", "org.test.package.OuterClass1.OuterClass2.ClassName", "test@github.com", "1EC4", "https://test.com");
-        classWithGenericUUT = new Row(4, "class", "org.test.package.OuterClass1.OuterClass2.ClassName<T>", "test@github.com", "1EC4", "https://test.com");
-        noPackageClassUUT = new Row(9, "class", "ClassName", "test@github.com", "1EC2", "https://test.com");
-        classWithStaticInnerClassUUT = new Row(10, "class", "Foo.Mumble", "test@github.com", "1EC2", "https://test.com");
+        classUUT = new Row(1, "class", "org.test.package.ClassName", "test@github.com", "1EC2", "https://test.com", "30", "35");
+        classWithOuterClassUUT = new Row(2, "class", "org.test.package.OuterClass1.ClassName", "test@github.com", "1EC3", "https://test.com", "30", "35");
+        classWithOuterClassChainUUT = new Row(3, "class", "org.test.package.OuterClass1.OuterClass2.ClassName", "test@github.com", "1EC4", "https://test.com", "30", "35");
+        classWithGenericUUT = new Row(4, "class", "org.test.package.OuterClass1.OuterClass2.ClassName<T>", "test@github.com", "1EC4", "https://test.com", "30", "35");
+        noPackageClassUUT = new Row(9, "class", "ClassName", "test@github.com", "1EC2", "https://test.com", "30", "35");
+        classWithStaticInnerClassUUT = new Row(10, "class", "Foo.Mumble", "test@github.com", "1EC2", "https://test.com", "30", "35");
 
         rowsUUT = Arrays.asList(classUUT, classWithOuterClassUUT, classWithOuterClassChainUUT, classWithGenericUUT);
         rowsUUT = CsvNormalizer.cleanseCsv(rowsUUT);

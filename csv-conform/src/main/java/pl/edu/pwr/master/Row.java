@@ -11,14 +11,25 @@ public class Row {
     private String repository;
     private String commitHash;
     private String link;
+    private String startLine;
+    private String endLine;
 
-    public Row(Integer id, String type, String codeName, String repository, String commitHash, String link) {
+    public Row(Integer id,
+               String type,
+               String codeName,
+               String repository,
+               String commitHash,
+               String link,
+               String startLine,
+               String endLine) {
         this.id = id;
         this.type = type;
         this.codeName = codeName;
         this.repository = repository;
         this.commitHash = commitHash;
         this.link = link;
+        this.startLine = startLine;
+        this.endLine = endLine;
     }
 
     @Override
@@ -30,6 +41,8 @@ public class Row {
                 ", repository='" + repository + '\'' +
                 ", commitHash='" + commitHash + '\'' +
                 ", link='" + link + '\'' +
+                ", startLine='" + startLine + '\'' +
+                ", endLine='" + endLine + '\'' +
                 '}';
     }
 
@@ -80,4 +93,21 @@ public class Row {
     public void setLink(String link) {
         this.link = link;
     }
+
+    public String getStartLine() {
+        return startLine;
+    }
+
+    public void setStartLine(String startLine) {
+        this.startLine = startLine;
+    }
+
+    public String getEndLine() {
+        return endLine;
+    }
+
+    public void setEndLine(String endLine) {
+        this.endLine = endLine;
+    }
+
 }

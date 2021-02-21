@@ -10,7 +10,7 @@ import java.util.List;
 public class CsvWriter {
 
     public static void writeCsv(String filename, List<ConformedRow> rows) {
-        try(FileWriter out = new FileWriter(filename)) {
+        try (FileWriter out = new FileWriter(filename)) {
             CSVPrinter printer = CSVFormat.DEFAULT
                     .withHeader(ConformedRowHeaders.class).print(out);
 
@@ -29,12 +29,14 @@ public class CsvWriter {
                         parameters,
                         r.getRepository(),
                         r.getCommitHash(),
-                        r.getGitSourceFileUrl()
+                        r.getGitSourceFileUrl(),
+                        r.getStartLine(),
+                        r.getEndLine()
                 );
             }
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
+
 }

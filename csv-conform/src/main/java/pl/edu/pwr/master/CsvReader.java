@@ -13,7 +13,7 @@ public class CsvReader {
 
     public static List<Row> readCsv(String filename) {
         List<Row> rows = new ArrayList<>();
-        try(Reader in = new FileReader(filename)) {
+        try (Reader in = new FileReader(filename)) {
             Iterable<CSVRecord> records = CSVFormat.DEFAULT
                     .withHeader(RowHeaders.class).withSkipHeaderRecord().withDelimiter(';').parse(in);
             for (CSVRecord record : records) {
@@ -23,14 +23,16 @@ public class CsvReader {
                 String repository = record.get(RowHeaders.REPOSITORY);
                 String commitHash = record.get(RowHeaders.COMMIT_HASH);
                 String link = record.get(RowHeaders.LINK);
+                String startLine = record.get(RowHeaders.START_LINE);
+                String endLine = record.get(RowHeaders.END_LINE);
 
-                rows.add(new Row(id, type, codeName, repository, commitHash, link));
+                rows.add(new Row(id, type, codeName, repository, commitHash, link, startLine, endLine));
             }
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
 
         return rows;
     }
+
 }

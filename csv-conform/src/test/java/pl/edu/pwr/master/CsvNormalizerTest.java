@@ -17,8 +17,8 @@ public class CsvNormalizerTest {
 
     @BeforeAll
     static void setUp() {
-        classWithGenericUUT = new Row(1, "class", "org.test.package.OuterClass1.OuterClass2.ClassName<T>", "test@github.com", "1EC4", "https://test.com");
-        methodArgsGenericUUT = new Row(2, "function", "org.test.package.ClassName#methodName arg1<Generic>|arg2|arg3<String, Integer>", "test@github.com", "1EC2", "https://test.com");
+        classWithGenericUUT = new Row(1, "class", "org.test.package.OuterClass1.OuterClass2.ClassName<T>", "test@github.com", "1EC4", "https://test.com", "1", "32");
+        methodArgsGenericUUT = new Row(2, "function", "org.test.package.ClassName#methodName arg1<Generic>|arg2|arg3<String, Integer>", "test@github.com", "1EC2", "https://test.com", "15", "17");
 
         csvMock = new ArrayList<>();
         csvMock.add(classWithGenericUUT);
