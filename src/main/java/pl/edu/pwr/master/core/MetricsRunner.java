@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 public class MetricsRunner {
 
     private static final Logger LOGGER = Logger.getLogger(MetricsRunner.class.getName());
-    private boolean parseDependencies;
+    private final boolean parseDependencies;
 
     public MetricsRunner(String input, String output, boolean parseDependencies) throws IOException, ParseException {
         this.parseDependencies = parseDependencies;
@@ -66,21 +66,21 @@ public class MetricsRunner {
     public void metricSuite(String path, String outputFilename, Input input) throws IOException, ParseException {
         List<String> projectPaths = getProjectPaths(path);
 
-        for (String p : projectPaths) {
+        for (String projectPath : projectPaths) {
 
-            LOGGER.info("Parsing project: " + p);
+            LOGGER.info("Parsing project: " + projectPath);
 
             if (parseDependencies) {
-                boolean result = downloadMavenDependencies(p);
-                String absolutePathWithJars = MavenDependencyDownloader.DEFAULT_OUTPUT_DEPENDENCY_DIR + File.separator + basename(p);
+                boolean result = downloadMavenDependencies(projectPath);
+                String absolutePathWithJars = MavenDependencyDownloader.DEFAULT_OUTPUT_DEPENDENCY_DIR + File.separator + basename(projectPath);
                 if (!result) {
-                    LOGGER.info("Dependency parsing failed for: " + p);
-                    parseProject(p, outputFilename, input);
+                    LOGGER.info("Dependency parsing failed for: " + projectPath);
+                    parseProject(projectPath, outputFilename, input);
                 } else {
-                    parseProject(p, absolutePathWithJars, outputFilename, input);
+                    parseProject(projectPath, absolutePathWithJars, outputFilename, input);
                 }
             } else {
-                parseProject(p, outputFilename, input);
+                parseProject(projectPath, outputFilename, input);
             }
         }
     }

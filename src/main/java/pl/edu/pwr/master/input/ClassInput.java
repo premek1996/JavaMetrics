@@ -8,8 +8,12 @@ public class ClassInput extends CsvInput {
 
     private final String className;
 
-    public ClassInput(String packagePath, String outerClass, String className) {
-        super(packagePath, outerClass);
+    public ClassInput(String packagePath,
+                      String outerClass,
+                      int startLine,
+                      int endLine,
+                      String className) {
+        super(packagePath, outerClass, startLine, endLine);
         this.className = className;
     }
 
@@ -30,4 +34,5 @@ public class ClassInput extends CsvInput {
     public int hashCode() {
         return Objects.hash(super.hashCode(), className);
     }
+
 }

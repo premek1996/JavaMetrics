@@ -12,8 +12,14 @@ public class MethodInput extends CsvInput {
     private final String methodName;
     private List<String> arguments;
 
-    public MethodInput(String packagePath, String outerClass, String className, String methodName, List<String> arguments) {
-        super(packagePath, outerClass);
+    public MethodInput(String packagePath,
+                       String outerClass,
+                       int startLine,
+                       int endLine,
+                       String className,
+                       String methodName,
+                       List<String> arguments) {
+        super(packagePath, outerClass, startLine, endLine);
         this.className = className;
         this.methodName = methodName;
         this.arguments = arguments;
@@ -46,4 +52,5 @@ public class MethodInput extends CsvInput {
     public int hashCode() {
         return Objects.hash(super.hashCode(), className, methodName, arguments);
     }
+
 }

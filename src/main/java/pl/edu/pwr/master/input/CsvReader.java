@@ -38,14 +38,16 @@ public class CsvReader {
                 String type = r.get(CsvHeaders.TYPE);
                 String packageName = r.get(CsvHeaders.PACKAGE);
                 String outerClass = r.get(CsvHeaders.OUTER_CLASS);
+                int startLine = Integer.parseInt(r.get(CsvHeaders.START_LINE));
+                int endLine = Integer.parseInt(r.get(CsvHeaders.END_LINE));
                 String className = r.get(CsvHeaders.CLASS);
                 String methodName = r.get(CsvHeaders.METHOD);
                 List<String> parameters = Arrays.asList(r.get(CsvHeaders.PARAMETERS).split("\\|"));
 
                 if (type.equals(ClassInput.CLASS_TYPE)) {
-                    classes.add(new ClassInput(packageName, outerClass, className));
+                    classes.add(new ClassInput(packageName, outerClass, startLine, endLine, className));
                 } else if (type.equals(MethodInput.METHOD_TYPE) || type.equals(MethodInput.CONSTRUCTOR_TYPE)) {
-                    methods.add(new MethodInput(packageName, outerClass, className, methodName, parameters));
+                    methods.add(new MethodInput(packageName, outerClass, startLine, endLine, className, methodName, parameters));
                 } else {
                     if (LOGGER.isLoggable(Level.INFO)) {
                         LOGGER.info("Found unknown value " + type + " in column 'type'!");
