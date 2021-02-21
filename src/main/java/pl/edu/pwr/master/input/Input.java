@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public class Input {
 
-    private List<ClassInput> classes;
-    private List<MethodInput> methods;
+    private final List<ClassInput> classes;
+    private final List<MethodInput> methods;
 
     public Input(List<ClassInput> classes, List<MethodInput> methods) {
         this.classes = classes;

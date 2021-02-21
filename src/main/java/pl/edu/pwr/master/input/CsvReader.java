@@ -32,17 +32,17 @@ public class CsvReader {
 
         try (Reader in = new FileReader(inputPath)) {
             Iterable<CSVRecord> records = CSVFormat.DEFAULT
-                    .withHeader(CsvHeaders.class).withSkipHeaderRecord().parse(in);
+                    .withHeader(CsvHeader.class).withSkipHeaderRecord().parse(in);
 
             records.forEach(r -> {
-                String type = r.get(CsvHeaders.TYPE);
-                String packageName = r.get(CsvHeaders.PACKAGE);
-                String outerClass = r.get(CsvHeaders.OUTER_CLASS);
-                int startLine = Integer.parseInt(r.get(CsvHeaders.START_LINE));
-                int endLine = Integer.parseInt(r.get(CsvHeaders.END_LINE));
-                String className = r.get(CsvHeaders.CLASS);
-                String methodName = r.get(CsvHeaders.METHOD);
-                List<String> parameters = Arrays.asList(r.get(CsvHeaders.PARAMETERS).split("\\|"));
+                String type = r.get(CsvHeader.TYPE);
+                String packageName = r.get(CsvHeader.PACKAGE);
+                String outerClass = r.get(CsvHeader.OUTER_CLASS);
+                int startLine = Integer.parseInt(r.get(CsvHeader.START_LINE));
+                int endLine = Integer.parseInt(r.get(CsvHeader.END_LINE));
+                String className = r.get(CsvHeader.CLASS);
+                String methodName = r.get(CsvHeader.METHOD);
+                List<String> parameters = Arrays.asList(r.get(CsvHeader.PARAMETERS).split("\\|"));
 
                 if (type.equals(ClassInput.CLASS_TYPE)) {
                     classes.add(new ClassInput(packageName, outerClass, startLine, endLine, className));
@@ -71,10 +71,10 @@ public class CsvReader {
         Map<String, Set<String>> output = new HashMap<>();
         try (Reader in = new FileReader(inputPath)) {
             Iterable<CSVRecord> records = CSVFormat.DEFAULT
-                    .withHeader(CsvHeaders.class).parse(in);
+                    .withHeader(CsvHeader.class).parse(in);
             for (CSVRecord record : records) {
-                String repository = record.get(CsvHeaders.REPOSITORY);
-                String hash = record.get(CsvHeaders.COMMIT_HASH);
+                String repository = record.get(CsvHeader.REPOSITORY);
+                String hash = record.get(CsvHeader.COMMIT_HASH);
 
                 if (output.containsKey(repository))
                     output.get(repository).add(hash);
@@ -87,4 +87,5 @@ public class CsvReader {
 
         return output;
     }
+
 }

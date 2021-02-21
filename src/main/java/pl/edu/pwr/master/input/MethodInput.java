@@ -10,7 +10,7 @@ public class MethodInput extends CsvInput {
 
     private final String className;
     private final String methodName;
-    private List<String> arguments;
+    private final List<String> arguments;
 
     public MethodInput(String packagePath,
                        String outerClass,
