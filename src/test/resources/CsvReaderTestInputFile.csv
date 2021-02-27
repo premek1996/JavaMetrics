@@ -1,4 +1,4 @@
-TYPE,PACKAGE,OUTER_CLASS,CLASS,METHOD,PARAMETERS,REPOSITORY,COMMIT_HASH,GIT_SOURCE_FILE_URL
-method,org.test.package,,Class,method,arg1|arg2|arg3,test,test,test
-constructor,org.test.package,,Class,Class,,test,test,test
-class,org.test.package,,Class,,,test,test,test
+TYPE,PACKAGE,OUTER_CLASS,CLASS,METHOD,PARAMETERS,REPOSITORY,COMMIT_HASH,GIT_SOURCE_FILE_URL,START_LINE,END_LINE
+method,org.test.package,,Class,method,arg1|arg2|arg3,test,test,test,1,2
+constructor,org.test.package,,Class,Class,,test,test,test,1,2
+class,org.test.package,,Class,,,test,test,test,1,2
