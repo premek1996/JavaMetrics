@@ -13,6 +13,7 @@ public class Row {
     private String link;
     private String startLine;
     private String endLine;
+    private String filePath;
 
     public Row(Integer id,
                String type,
@@ -21,7 +22,8 @@ public class Row {
                String commitHash,
                String link,
                String startLine,
-               String endLine) {
+               String endLine,
+               String filePath) {
         this.id = id;
         this.type = type;
         this.codeName = codeName;
@@ -30,20 +32,7 @@ public class Row {
         this.link = link;
         this.startLine = startLine;
         this.endLine = endLine;
-    }
-
-    @Override
-    public String toString() {
-        return "Row{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
-                ", codeName='" + codeName + '\'' +
-                ", repository='" + repository + '\'' +
-                ", commitHash='" + commitHash + '\'' +
-                ", link='" + link + '\'' +
-                ", startLine='" + startLine + '\'' +
-                ", endLine='" + endLine + '\'' +
-                '}';
+        this.filePath = filePath;
     }
 
     public Integer getId() {
@@ -108,6 +97,29 @@ public class Row {
 
     public void setEndLine(String endLine) {
         this.endLine = endLine;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    @Override
+    public String toString() {
+        return "Row{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", codeName='" + codeName + '\'' +
+                ", repository='" + repository + '\'' +
+                ", commitHash='" + commitHash + '\'' +
+                ", link='" + link + '\'' +
+                ", startLine='" + startLine + '\'' +
+                ", endLine='" + endLine + '\'' +
+                ", filePath='" + filePath + '\'' +
+                '}';
     }
 
 }

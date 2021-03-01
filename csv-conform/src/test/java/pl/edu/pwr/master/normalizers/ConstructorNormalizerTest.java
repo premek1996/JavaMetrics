@@ -20,9 +20,9 @@ public class ConstructorNormalizerTest {
 
     @BeforeAll
     static void setUp() {
-        constructorNoArgsUUT = new Row(1, "function", "org.test.package.ClassName.ClassName", "test@github.com", "1EC2", "https://test.com", "30", "35");
-        constructorArgsUUT = new Row(2, "function", "org.test.package.OuterClass.ClassName.ClassName arg1", "test@github.com", "1EC2", "https://test.com", "30", "35");
-        noPackageConstructorUUT = new Row(3, "function", "ClassName.ClassName", "test@github.com", "1EC2", "https://test.com", "30", "35");
+        constructorNoArgsUUT = new Row(1, "function", "org.test.package.ClassName.ClassName", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
+        constructorArgsUUT = new Row(2, "function", "org.test.package.OuterClass.ClassName.ClassName arg1", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
+        noPackageConstructorUUT = new Row(3, "function", "ClassName.ClassName", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
 
         rowsUUT = Arrays.asList(constructorArgsUUT, constructorNoArgsUUT);
         rowsUUT = CsvNormalizer.cleanseCsv(rowsUUT);
@@ -97,4 +97,5 @@ public class ConstructorNormalizerTest {
 
         assertEquals("arg1", params.get(0));
     }
+
 }

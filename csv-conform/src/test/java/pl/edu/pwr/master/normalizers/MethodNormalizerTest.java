@@ -21,10 +21,10 @@ public class MethodNormalizerTest {
 
     @BeforeAll
     static void setUp() {
-        methodNoArgsUUT = new Row(1, "function", "org.test.package.ClassName#methodName", "test@github.com", "1EC2", "https://test.com", "30", "35");
-        methodArgsUUT = new Row(2, "function", "org.test.package.OuterClass.ClassName#methodName arg1|arg2|arg3", "test@github.com", "1EC2", "https://test.com", "30", "35");
-        methodArgsGenericUUT = new Row(3, "function", "org.test.package.ClassName#methodName arg1<Generic>|arg2|arg3<String, Integer>", "test@github.com", "1EC2", "https://test.com", "30", "35");
-        noPackageMethodUUT = new Row(4, "function", "ClassName#methodName", "test@github.com", "1EC2", "https://test.com", "30", "35");
+        methodNoArgsUUT = new Row(1, "function", "org.test.package.ClassName#methodName", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
+        methodArgsUUT = new Row(2, "function", "org.test.package.OuterClass.ClassName#methodName arg1|arg2|arg3", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
+        methodArgsGenericUUT = new Row(3, "function", "org.test.package.ClassName#methodName arg1<Generic>|arg2|arg3<String, Integer>", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
+        noPackageMethodUUT = new Row(4, "function", "ClassName#methodName", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
 
         rowsUUT = Arrays.asList(methodNoArgsUUT, methodArgsUUT, methodArgsGenericUUT);
         rowsUUT = CsvNormalizer.cleanseCsv(rowsUUT);
@@ -107,4 +107,5 @@ public class MethodNormalizerTest {
         assertEquals("arg2", params.get(1));
         assertEquals("arg3", params.get(2));
     }
+
 }

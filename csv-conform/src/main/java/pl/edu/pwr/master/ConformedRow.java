@@ -19,6 +19,7 @@ public class ConformedRow {
     private String gitSourceFileUrl;
     private String startLine;
     private String endLine;
+    private String filePath;
 
     public ConformedRow() {
     }
@@ -33,7 +34,8 @@ public class ConformedRow {
                         String commitHash,
                         String gitSourceFileUrl,
                         String startLine,
-                        String endLine) {
+                        String endLine,
+                        String filePath) {
         this.type = type;
         this.packageName = packageName;
         this.outerClassName = outerClassName;
@@ -45,6 +47,7 @@ public class ConformedRow {
         this.gitSourceFileUrl = gitSourceFileUrl;
         this.startLine = startLine;
         this.endLine = endLine;
+        this.filePath = filePath;
     }
 
     public String getType() {
@@ -133,6 +136,14 @@ public class ConformedRow {
 
     public void setEndLine(String endLine) {
         this.endLine = endLine;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 
 }

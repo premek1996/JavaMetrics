@@ -10,15 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CsvNormalizerTest {
 
-    private static Row classWithGenericUUT;
-    private static Row methodArgsGenericUUT;
-
     private static List<Row> csvMock;
 
     @BeforeAll
     static void setUp() {
-        classWithGenericUUT = new Row(1, "class", "org.test.package.OuterClass1.OuterClass2.ClassName<T>", "test@github.com", "1EC4", "https://test.com", "1", "32");
-        methodArgsGenericUUT = new Row(2, "function", "org.test.package.ClassName#methodName arg1<Generic>|arg2|arg3<String, Integer>", "test@github.com", "1EC2", "https://test.com", "15", "17");
+        Row classWithGenericUUT = new Row(1, "class", "org.test.package.OuterClass1.OuterClass2.ClassName<T>", "test@github.com", "1EC4", "https://test.com", "1", "32", "filePath");
+        Row methodArgsGenericUUT = new Row(2, "function", "org.test.package.ClassName#methodName arg1<Generic>|arg2|arg3<String, Integer>", "test@github.com", "1EC2", "https://test.com", "15", "17", "filePath");
 
         csvMock = new ArrayList<>();
         csvMock.add(classWithGenericUUT);
@@ -33,4 +30,5 @@ public class CsvNormalizerTest {
         assertEquals("org.test.package.OuterClass1.OuterClass2.ClassName", csvCleansed.get(0).getCodeName());
         assertEquals("org.test.package.ClassName#methodName arg1|arg2|arg3", csvCleansed.get(1).getCodeName());
     }
+
 }

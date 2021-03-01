@@ -15,18 +15,19 @@ public class CsvReader {
         List<Row> rows = new ArrayList<>();
         try (Reader in = new FileReader(filename)) {
             Iterable<CSVRecord> records = CSVFormat.DEFAULT
-                    .withHeader(RowHeaders.class).withSkipHeaderRecord().withDelimiter(';').parse(in);
+                    .withHeader(RowHeader.class).withSkipHeaderRecord().withDelimiter(';').parse(in);
             for (CSVRecord record : records) {
-                Integer id = Integer.parseInt(record.get(RowHeaders.ID));
-                String type = record.get(RowHeaders.TYPE);
-                String codeName = record.get(RowHeaders.CODE_NAME);
-                String repository = record.get(RowHeaders.REPOSITORY);
-                String commitHash = record.get(RowHeaders.COMMIT_HASH);
-                String link = record.get(RowHeaders.LINK);
-                String startLine = record.get(RowHeaders.START_LINE);
-                String endLine = record.get(RowHeaders.END_LINE);
+                Integer id = Integer.parseInt(record.get(RowHeader.ID));
+                String type = record.get(RowHeader.TYPE);
+                String codeName = record.get(RowHeader.CODE_NAME);
+                String repository = record.get(RowHeader.REPOSITORY);
+                String commitHash = record.get(RowHeader.COMMIT_HASH);
+                String link = record.get(RowHeader.LINK);
+                String startLine = record.get(RowHeader.START_LINE);
+                String endLine = record.get(RowHeader.END_LINE);
+                String filePath = record.get(RowHeader.PATH);
 
-                rows.add(new Row(id, type, codeName, repository, commitHash, link, startLine, endLine));
+                rows.add(new Row(id, type, codeName, repository, commitHash, link, startLine, endLine, filePath));
             }
         } catch (IOException ex) {
             ex.printStackTrace();

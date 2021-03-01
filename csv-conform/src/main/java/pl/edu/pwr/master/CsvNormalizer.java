@@ -80,6 +80,7 @@ public class CsvNormalizer {
                     c.setGitSourceFileUrl(row.getLink());
                     c.setStartLine(row.getStartLine());
                     c.setEndLine(row.getEndLine());
+                    c.setFilePath(row.getFilePath());
 
                     return c;
                 })

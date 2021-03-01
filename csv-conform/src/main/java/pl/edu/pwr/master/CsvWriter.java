@@ -31,7 +31,8 @@ public class CsvWriter {
                         r.getCommitHash(),
                         r.getGitSourceFileUrl(),
                         r.getStartLine(),
-                        r.getEndLine()
+                        r.getEndLine(),
+                        r.getFilePath()
                 );
             }
         } catch (IOException ex) {
