@@ -12,8 +12,9 @@ public class ClassInput extends CsvInput {
                       String outerClass,
                       int startLine,
                       int endLine,
+                      String filePath,
                       String className) {
-        super(packagePath, outerClass, startLine, endLine);
+        super(packagePath, outerClass, startLine, endLine, filePath);
         this.className = className;
     }
 

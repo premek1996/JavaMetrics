@@ -16,10 +16,11 @@ public class MethodInput extends CsvInput {
                        String outerClass,
                        int startLine,
                        int endLine,
+                       String filePath,
                        String className,
                        String methodName,
                        List<String> arguments) {
-        super(packagePath, outerClass, startLine, endLine);
+        super(packagePath, outerClass, startLine, endLine, filePath);
         this.className = className;
         this.methodName = methodName;
         this.arguments = arguments;

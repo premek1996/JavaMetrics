@@ -8,15 +8,18 @@ public class CsvInput {
     private final String outerClass;
     private final int startLine;
     private final int endLine;
+    private final String filePath;
 
     public CsvInput(String packagePath,
                     String outerClass,
                     int startLine,
-                    int endLine) {
+                    int endLine,
+                    String filePath) {
         this.packagePath = packagePath;
         this.outerClass = outerClass;
         this.startLine = startLine;
         this.endLine = endLine;
+        this.filePath = filePath;
     }
 
     public String getClosestOuterClass() {
@@ -40,6 +43,10 @@ public class CsvInput {
         return endLine;
     }
 
+    public String getFilePath() {
+        return filePath;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -48,12 +55,13 @@ public class CsvInput {
         return startLine == csvInput.startLine &&
                 endLine == csvInput.endLine &&
                 Objects.equals(packagePath, csvInput.packagePath) &&
-                Objects.equals(outerClass, csvInput.outerClass);
+                Objects.equals(outerClass, csvInput.outerClass) &&
+                Objects.equals(filePath, csvInput.filePath);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(packagePath, outerClass, startLine, endLine);
+        return Objects.hash(packagePath, outerClass, startLine, endLine, filePath);
     }
 
 }
