@@ -1,4 +1,4 @@
-package pl.edu.pwr.master.normalizers;
+package pl.edu.pwr.master.normalizer;
 
 public class BaseNormalizer {
 
@@ -8,20 +8,19 @@ public class BaseNormalizer {
         StringBuilder sb = new StringBuilder();
         boolean isInsideOuterClassChain = true;
         for (int i = codeNameSplit.length - startIndexOffset; i >= 0; i--) {
-            if (! Character.isUpperCase(codeNameSplit[i].codePointAt(0))) {
+            if (!Character.isUpperCase(codeNameSplit[i].codePointAt(0))) {
                 isInsideOuterClassChain = false;
                 sb.insert(0, '.');
                 sb.insert(0, codeNameSplit[i]);
 
-            }
-            else if (! isInsideOuterClassChain) {
+            } else if (!isInsideOuterClassChain) {
                 sb.insert(0, '.');
                 sb.insert(0, codeNameSplit[i]);
             }
         }
 
         String packageName = sb.toString();
-        if (! packageName.isBlank()) {
+        if (!packageName.isBlank()) {
             packageName = packageName.substring(0, packageName.length() - 1);
         }
 
@@ -36,14 +35,13 @@ public class BaseNormalizer {
             if (Character.isUpperCase(codeNameSplit[i].codePointAt(0))) {
                 sb.insert(0, '.');
                 sb.insert(0, codeNameSplit[i]);
-            }
-            else {
+            } else {
                 break;
             }
         }
 
         String outerClassChain = sb.toString();
-        if (! outerClassChain.isBlank()) {
+        if (!outerClassChain.isBlank()) {
             outerClassChain = outerClassChain.substring(0, outerClassChain.length() - 1);
         }
 
@@ -54,4 +52,5 @@ public class BaseNormalizer {
         String[] codeNameSplit = codeName.split("\\."); // . is the delimiter between elements in a package
         return codeNameSplit[codeNameSplit.length - 1];
     }
+
 }

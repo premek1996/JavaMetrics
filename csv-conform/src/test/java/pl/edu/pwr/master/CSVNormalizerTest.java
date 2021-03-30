@@ -2,13 +2,15 @@ package pl.edu.pwr.master;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pl.edu.pwr.master.input.Row;
+import pl.edu.pwr.master.normalizer.CSVNormalizer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CsvNormalizerTest {
+public class CSVNormalizerTest {
 
     private static List<Row> csvMock;
 
@@ -23,8 +25,8 @@ public class CsvNormalizerTest {
     }
 
     @Test
-    void cleanseCsvTest() {
-        List<Row> csvCleansed = CsvNormalizer.cleanseCsv(csvMock);
+    void cleanseCSVTest() {
+        List<Row> csvCleansed = CSVNormalizer.cleanseCsv(csvMock);
 
         assertEquals(2, csvCleansed.size());
         assertEquals("org.test.package.OuterClass1.OuterClass2.ClassName", csvCleansed.get(0).getCodeName());

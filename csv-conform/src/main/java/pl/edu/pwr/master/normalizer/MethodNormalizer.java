@@ -1,4 +1,4 @@
-package pl.edu.pwr.master.normalizers;
+package pl.edu.pwr.master.normalizer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,9 +13,7 @@ public class MethodNormalizer extends BaseNormalizer {
         if (packageNameWithClass.contains(".")) {
             return extractPackageName(packageNameWithClass, 2);
         }
-        else {
-            return "";
-        }
+        return "";
     }
 
     public static String mapOuterClassForMethod(String codeName) {
@@ -25,9 +23,7 @@ public class MethodNormalizer extends BaseNormalizer {
         if (packageNameWithClass.contains(".")) {
             return extractOuterClass(packageNameWithClass, 2);
         }
-        else {
-            return "";
-        }
+        return "";
     }
 
     public static String mapClassNameForMethod(String codeName) {
@@ -37,15 +33,12 @@ public class MethodNormalizer extends BaseNormalizer {
         if (packageNameWithClass.contains(".")) {
             return extractClassName(packageNameWithClass);
         }
-        else {
-            return packageNameWithClass;
-        }
+        return packageNameWithClass;
     }
 
     public static String mapMethodNameForMethod(String codeName) {
         String[] codeNameSplit = codeName.split("#"); // # is the method delimiter
         String[] methodWithArgsSplit = codeNameSplit[1].split(" "); // ' ' is the delimiter between method name and args
-
         return methodWithArgsSplit[0];
     }
 
@@ -54,9 +47,10 @@ public class MethodNormalizer extends BaseNormalizer {
         String[] methodWithArgsSplit = codeNameSplit[1].split(" "); // ' ' is the delimiter between method name and args
 
         List<String> arguments = new ArrayList<>();
-        if (codeNameSplit[1].contains(" "))
+        if (codeNameSplit[1].contains(" ")) {
             arguments = Arrays.asList(methodWithArgsSplit[1].split("\\|"));
-
+        }
         return arguments;
     }
+
 }

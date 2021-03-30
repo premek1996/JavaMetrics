@@ -1,4 +1,4 @@
-package pl.edu.pwr.master.normalizers;
+package pl.edu.pwr.master.normalizer;
 
 public class ClassNormalizer extends BaseNormalizer {
 
@@ -6,26 +6,21 @@ public class ClassNormalizer extends BaseNormalizer {
         if (codeName.contains(".")) {
             return extractPackageName(codeName, 2);
         }
-        else {
-            return "";
-        }
+        return "";
     }
 
     public static String mapOuterClassForClass(String codeName) {
         if (codeName.contains(".")) {
             return extractOuterClass(codeName, 2);
         }
-        else {
-            return "";
-        }
+        return "";
     }
 
     public static String mapClassNameForClass(String codeName) {
         if (codeName.contains(".")) {
             return extractClassName(codeName);
         }
-        else {
-            return codeName;
-        }
+        return codeName;
     }
+
 }

@@ -1,9 +1,8 @@
-package pl.edu.pwr.master.normalizers;
+package pl.edu.pwr.master.normalizer;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pl.edu.pwr.master.CsvNormalizer;
-import pl.edu.pwr.master.Row;
+import pl.edu.pwr.master.input.Row;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +24,7 @@ public class ConstructorNormalizerTest {
         noPackageConstructorUUT = new Row(3, "function", "ClassName.ClassName", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
 
         rowsUUT = Arrays.asList(constructorArgsUUT, constructorNoArgsUUT);
-        rowsUUT = CsvNormalizer.cleanseCsv(rowsUUT);
+        rowsUUT = CSVNormalizer.cleanseCsv(rowsUUT);
     }
 
     @Test
