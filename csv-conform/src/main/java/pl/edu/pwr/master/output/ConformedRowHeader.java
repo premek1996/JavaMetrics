@@ -2,6 +2,7 @@ package pl.edu.pwr.master.output;
 
 public enum ConformedRowHeader {
 
+    SAMPLE_ID,
     TYPE,
     PACKAGE,
     OUTER_CLASS,

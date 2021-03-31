@@ -48,6 +48,7 @@ public class ConformedRowMapper {
             }
         }
 
+        c.setSampleId(row.getSampleId());
         c.setRepository(row.getRepository());
         c.setCommitHash(row.getCommitHash());
         c.setGitSourceFileUrl(row.getLink());

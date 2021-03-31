@@ -32,6 +32,7 @@ public class CSVWriter {
     private static void printRow(ConformedRow row) {
         try {
             printer.printRecord(
+                    row.getSampleId(),
                     row.getType(),
                     row.getPackageName(),
                     row.getOuterClassName(),

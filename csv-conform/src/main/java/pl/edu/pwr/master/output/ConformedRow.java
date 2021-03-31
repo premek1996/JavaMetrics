@@ -15,6 +15,7 @@ public class ConformedRow {
     public static final String METHOD_TYPE = "method";
     public static final String CONSTRUCTOR_TYPE = "constructor";
 
+    private int sampleId;
     private String type;
     private String packageName;
     private String outerClassName;
