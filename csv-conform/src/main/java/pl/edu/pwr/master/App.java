@@ -21,13 +21,13 @@ public class App {
             rows = CSVNormalizer.cleanseCSV(rows);
 
             List<ConformedRow> conformedRows = CSVNormalizer.conformCSV(rows);
-            CSVWriter.writeCsv(args[0], conformedRows);
+            CSVWriter.writeCSV(args[0], conformedRows);
         } else if (args.length == 2) {
             List<Row> rows = CSVReader.readCSV(args[0]);
             rows = CSVNormalizer.cleanseCSV(rows);
 
             List<ConformedRow> conformedRows = CSVNormalizer.conformCSV(rows);
-            CSVWriter.writeCsv(args[1], conformedRows);
+            CSVWriter.writeCSV(args[1], conformedRows);
         } else {
             System.err.println("Usage: java -jar CsvConform <input_csv> [<output_csv>]");
             System.exit(1);

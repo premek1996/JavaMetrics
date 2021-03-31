@@ -2,6 +2,7 @@ package pl.edu.pwr.master.input;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,6 +14,7 @@ import java.util.logging.Logger;
 @Builder
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Row {
 
     private static final Logger LOGGER = Logger.getLogger(Row.class.getName());
@@ -20,7 +22,9 @@ public class Row {
     public static final String CLASS_TYPE = "class";
     public static final String METHOD_TYPE = "function";
 
-    private Integer id;
+    @EqualsAndHashCode.Include
+    private int sampleId;
+
     private String type;
     private String codeName;
     private String repository;

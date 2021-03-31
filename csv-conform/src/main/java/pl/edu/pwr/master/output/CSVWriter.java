@@ -14,8 +14,8 @@ public class CSVWriter {
     private CSVWriter() {
     }
 
-    public static void writeCsv(String filename, List<ConformedRow> rows) {
-        try (FileWriter out = new FileWriter(filename)) {
+    public static void writeCSV(String fileName, List<ConformedRow> rows) {
+        try (FileWriter out = new FileWriter(fileName)) {
             printer = getPrinter(out);
             rows.forEach(CSVWriter::printRow);
         } catch (IOException ex) {

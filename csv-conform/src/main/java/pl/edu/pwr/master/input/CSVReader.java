@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CSVReader {
 
@@ -23,7 +24,7 @@ public class CSVReader {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        return rows;
+        return getRowsWithoutDuplicates(rows);
     }
 
     private static Iterable<CSVRecord> getRecords(Reader in) throws IOException {
@@ -32,6 +33,10 @@ public class CSVReader {
                 .withSkipHeaderRecord()
                 .withDelimiter(';')
                 .parse(in);
+    }
+
+    private static List<Row> getRowsWithoutDuplicates(List<Row> rows) {
+        return rows.stream().distinct().collect(Collectors.toList());
     }
 
 }

@@ -10,7 +10,7 @@ public class RowMapper {
     }
 
     public static Row from(CSVRecord record) {
-        Integer id = Integer.parseInt(record.get(RowHeader.ID));
+        int sampleId = Integer.parseInt(record.get(RowHeader.SAMPLE_ID));
         String type = record.get(RowHeader.TYPE);
         String codeName = record.get(RowHeader.CODE_NAME);
         String repository = record.get(RowHeader.REPOSITORY);
@@ -20,7 +20,7 @@ public class RowMapper {
         String endLine = record.get(RowHeader.END_LINE);
         String filePath = record.get(RowHeader.PATH);
         return Row.builder()
-                .id(id)
+                .sampleId(sampleId)
                 .type(type)
                 .codeName(codeName)
                 .repository(repository)
