@@ -12,7 +12,7 @@ public class CSVNormalizer {
 
     private static final Logger LOGGER = Logger.getLogger(CSVNormalizer.class.getName());
 
-    public static List<Row> cleanseCsv(List<Row> rows) {
+    public static List<Row> cleanseCSV(List<Row> rows) {
         return rows.stream()
                 .filter(Row::isCorrect)
                 .map(CSVNormalizer::getRowWithCorrectCodeName)
@@ -28,7 +28,7 @@ public class CSVNormalizer {
         return row;
     }
 
-    public static List<ConformedRow> conformCsv(List<Row> rows) {
+    public static List<ConformedRow> conformCSV(List<Row> rows) {
         return rows.stream()
                 .map(ConformedRowMapper::from)
                 .collect(Collectors.toList());

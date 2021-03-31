@@ -18,15 +18,15 @@ public class App {
         setLoggingLevel();
         if (args.length == 1) {
             List<Row> rows = CSVReader.readCSV(args[0]);
-            rows = CSVNormalizer.cleanseCsv(rows);
+            rows = CSVNormalizer.cleanseCSV(rows);
 
-            List<ConformedRow> conformedRows = CSVNormalizer.conformCsv(rows);
+            List<ConformedRow> conformedRows = CSVNormalizer.conformCSV(rows);
             CSVWriter.writeCsv(args[0], conformedRows);
         } else if (args.length == 2) {
             List<Row> rows = CSVReader.readCSV(args[0]);
-            rows = CSVNormalizer.cleanseCsv(rows);
+            rows = CSVNormalizer.cleanseCSV(rows);
 
-            List<ConformedRow> conformedRows = CSVNormalizer.conformCsv(rows);
+            List<ConformedRow> conformedRows = CSVNormalizer.conformCSV(rows);
             CSVWriter.writeCsv(args[1], conformedRows);
         } else {
             System.err.println("Usage: java -jar CsvConform <input_csv> [<output_csv>]");

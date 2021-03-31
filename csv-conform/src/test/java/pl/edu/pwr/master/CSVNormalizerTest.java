@@ -26,7 +26,7 @@ public class CSVNormalizerTest {
 
     @Test
     void cleanseCSVTest() {
-        List<Row> csvCleansed = CSVNormalizer.cleanseCsv(csvMock);
+        List<Row> csvCleansed = CSVNormalizer.cleanseCSV(csvMock);
 
         assertEquals(2, csvCleansed.size());
         assertEquals("org.test.package.OuterClass1.OuterClass2.ClassName", csvCleansed.get(0).getCodeName());

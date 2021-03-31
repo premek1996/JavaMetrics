@@ -24,7 +24,7 @@ public class ConstructorNormalizerTest {
         noPackageConstructorUUT = new Row(3, "function", "ClassName.ClassName", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
 
         rowsUUT = Arrays.asList(constructorArgsUUT, constructorNoArgsUUT);
-        rowsUUT = CSVNormalizer.cleanseCsv(rowsUUT);
+        rowsUUT = CSVNormalizer.cleanseCSV(rowsUUT);
     }
 
     @Test

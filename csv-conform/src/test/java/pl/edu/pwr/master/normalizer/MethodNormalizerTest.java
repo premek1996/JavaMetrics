@@ -26,7 +26,7 @@ public class MethodNormalizerTest {
         noPackageMethodUUT = new Row(4, "function", "ClassName#methodName", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
 
         rowsUUT = Arrays.asList(methodNoArgsUUT, methodArgsUUT, methodArgsGenericUUT);
-        rowsUUT = CSVNormalizer.cleanseCsv(rowsUUT);
+        rowsUUT = CSVNormalizer.cleanseCSV(rowsUUT);
     }
 
     @Test

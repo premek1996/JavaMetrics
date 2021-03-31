@@ -30,7 +30,7 @@ public class ClassNormalizerTest {
         classWithStaticInnerClassUUT = new Row(10, "class", "Foo.Mumble", "test@github.com", "1EC2", "https://test.com", "30", "35", "filePath");
 
         rowsUUT = Arrays.asList(classUUT, classWithOuterClassUUT, classWithOuterClassChainUUT, classWithGenericUUT);
-        rowsUUT = CSVNormalizer.cleanseCsv(rowsUUT);
+        rowsUUT = CSVNormalizer.cleanseCSV(rowsUUT);
     }
 
     @Test
